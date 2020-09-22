@@ -16,4 +16,5 @@ artifacts:
   files:
     - target/my-app-1.0-SNAPSHOT.jar
     - appspec.yml
+    - stop_server.sh
   discard-paths: yes
