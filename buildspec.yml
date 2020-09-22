@@ -15,7 +15,5 @@ phases:
 artifacts:
   files:
     - target/my-app-1.0-SNAPSHOT.jar
-    - start_server.sh
-    - stop_server.sh
     - appspec.yml
   discard-paths: yes
