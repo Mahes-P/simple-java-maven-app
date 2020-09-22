@@ -7,17 +7,15 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn test 
-      - echo Build completed on `date`
-      - mvn clean install      
+      - mvn test     
   post_build:
     commands:
-      - echo zipping artifacts on `date`
-      - cp *.sh ./target/
-      - cd target
-      - tar -czvf my-app.tgz *
+      - echo Build completed on `date`
+      - mvn clean install 
 artifacts:
   files:
     - target/my-app-1.0-SNAPSHOT.jar
+    - start_server.sh
+    - stop_server.sh
     - appspec.yml
   discard-paths: yes
