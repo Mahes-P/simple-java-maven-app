@@ -2,16 +2,13 @@ version: 0.0
 os: linux
 files:
 - source: /
-  destination: /home/centos
-permissions:
-  - object: /home/centos/stop_server.sh
-    mode: 755
-    pattern: "*.sh"
-  - object: /stop_server.sh
-    mode: 755
-    pattern: "*.sh"    
+  destination: /home/centos  
 hooks:
+  ApplicationStop:
+    - location: stop_server.sh
+      timeout: 300
+      runas: root
   ApplicationStart:
-  - location: start_server.sh
-    timeout: 300
-    runas: root
+    - location: start_server.sh
+      timeout: 300
+      runas: root
