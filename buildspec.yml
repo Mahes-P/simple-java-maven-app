@@ -8,10 +8,14 @@ phases:
     commands:
       - echo Build started on `date`
       - mvn test 
+      - echo Build completed on `date`
+      - mvn clean install      
   post_build:
     commands:
-      - echo Build completed on `date`
-      - mvn clean install
+      - echo zipping artifacts on `date`
+      - cp *.sh ./target/
+      - cd target
+      - tar -czvf my-app.tgz *
 artifacts:
   files:
     - target/my-app-1.0-SNAPSHOT.jar
