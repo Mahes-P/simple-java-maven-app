@@ -3,6 +3,13 @@ os: linux
 files:
 - source: /
   destination: /home/centos
+permissions:
+  - object: /home/centos/stop_server.sh
+    mode: 755
+    pattern: "*.sh"
+  - object: /stop_server.sh
+    mode: 755
+    pattern: "*.sh"    
 hooks:
   ApplicationStart:
   - location: start_server.sh
